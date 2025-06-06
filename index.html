@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Resume Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Resume Generator</h1>
+    <form id="resumeForm" autocomplete="off" spellcheck="false" method="POST" action="/generate">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="name" required placeholder="John Doe" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="john@example.com" />
+
+      <label for="careerObjective">Career Objective</label>
+      <textarea id="careerObjective" name="summary" rows="3" required placeholder="Describe your career goals..."></textarea>
+
+      <label for="experience">Experience</label>
+      <textarea id="experience" name="experience" rows="4" required placeholder="List your work experience..."></textarea>
+
+      <label for="skills">Skills (comma separated)</label>
+      <input type="text" id="skills" name="skills" required placeholder="JavaScript, React, Node.js" />
+
+      <label for="industry">Industry</label>
+      <select id="industry" name="job" required>
+        <option value="" disabled selected>Select Industry</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Finance">Finance</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Education">Education</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Retail">Retail</option>
+        <option value="Construction">Construction</option>
+        <option value="Hospitality">Hospitality</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="submit">Generate Resume PDF</button>
+    </form>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <!-- If using JavaScript functionality for fetch instead of form POST, re-enable the script below -->
+  <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+</body>
+</html>
